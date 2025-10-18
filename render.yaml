@@ -1,17 +1,11 @@
 services:
-  - type: web_service
+  - type: web
     name: ttrss
-    env: docker
+    runtime: image
+    image:
+      url: wangqiru/ttrss:latest
     plan: free
     region: oregon
-    # Используем готовый образ, без Dockerfile
-    dockerRepository: wangqiru/ttrss
-    dockerTag: latest
-
-    # Автообновление при пуше не требуется (образ обновляется в Docker Hub)
-    autoDeploy: false
-
-    # Переменные окружения для TT-RSS
     envVars:
       - key: SELF_URL_PATH
         value: https://ttrss.onrender.com/
@@ -20,7 +14,6 @@ services:
       - key: TZ
         value: Europe/Moscow
 
-    # Бесплатная база Postgres, параметры которой Render подставит в DB_*
-    databases:
-      - name: ttrss-db
-        plan: free
+databases:
+  - name: ttrss-db
+    plan: free
