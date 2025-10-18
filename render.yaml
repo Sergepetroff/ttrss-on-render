@@ -9,10 +9,27 @@ services:
     envVars:
       - key: SELF_URL_PATH
         value: https://ttrss.onrender.com/
-      - key: DB_TYPE
-        value: pgsql
-      - key: TZ
-        value: Europe/Moscow
+      - key: DB_HOST
+        fromDatabase:
+          name: ttrss-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: ttrss-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: ttrss-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: ttrss-db
+          property: user
+      - key: DB_PASS
+        fromDatabase:
+          name: ttrss-db
+          property: password
+    autoDeploy: true
 
 databases:
   - name: ttrss-db
