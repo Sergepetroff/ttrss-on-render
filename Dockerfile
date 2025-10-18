@@ -13,5 +13,9 @@ COPY config.php /var/www/html/config.php
 COPY plugins/fulltextrss /var/www/html/plugins/fulltextrss
 
 # Cron setup: update feeds every  2h
-COPY update_feeds.sh /etc/periodic/2hour/update_feeds
+# Cron setup: update feeds every 2h
+RUN mkdir -p /etc/periodic/2hour && \
+    echo "0 */2 * * * curl -fsS http://localhost/backend.php?op=globalUpdateFeeds >/dev/null 2>&1" \
+    > /etc/periodic/2hour/update_feeds && \
+    chmod +x /etc/periodic/2hour/update_feeds
 RUN chmod +x /etc/periodic/2hour/update_feeds
