@@ -8,7 +8,7 @@ services:
     region: oregon
     envVars:
       - key: SELF_URL_PATH
-        value: https://ttrss.onrender.com/
+        value: https://ttrss-nq00t.onrender.com
       - key: DB_HOST
         fromDatabase:
           name: ttrss-db
@@ -29,6 +29,58 @@ services:
         fromDatabase:
           name: ttrss-db
           property: password
+      - key: PUID
+        value: "1000"
+      - key: PGID
+        value: "1000"
+      - key: MERCURY_URL
+        value: https://mercury-parser-nq00t.onrender.com
+      - key: OPENCC_URL
+        value: https://opencc-api-nq00t.onrender.com
+      - key: RSSHUB_URL
+        value: https://rsshub-nq00t.onrender.com
+    autoDeploy: true
+
+  - type: web
+    name: mercury-parser
+    runtime: image
+    image:
+      url: wangqiru/mercury-parser-api:latest
+    plan: free
+    region: oregon
+    envVars:
+      - key: NODE_ENV
+        value: production
+    autoDeploy: true
+
+  - type: web
+    name: opencc-api
+    runtime: image
+    image:
+      url: wangqiru/opencc-api-server:latest
+    plan: free
+    region: oregon
+    envVars:
+      - key: NODE_ENV
+        value: production
+    autoDeploy: true
+
+  - type: web
+    name: rsshub
+    runtime: image
+    image:
+      url: diygod/rsshub:latest
+    plan: free
+    region: oregon
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DEBUG_INFO
+        value: "false"
+      - key: LOGGER_LEVEL
+        value: "error"
+      - key: NO_LOGFILES
+        value: "true"
     autoDeploy: true
 
 databases:
