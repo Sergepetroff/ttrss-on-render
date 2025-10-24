@@ -66,6 +66,18 @@ services:
     autoDeploy: true
 
   - type: web
+    name: morss
+    runtime: image
+    image:
+      url: pictuga/morss:latest
+    plan: free
+    region: oregon
+    envVars:
+      - key: MORSS_PORT
+        value: "8000"
+    autoDeploy: true
+
+  - type: web
     name: rsshub
     runtime: image
     image:
