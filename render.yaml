@@ -75,6 +75,22 @@ services:
     envVars:
       - key: MORSS_PORT
         value: "8000"
+      - key: TIMEOUT
+        value: "60"
+      - key: MAX_TIME
+        value: "120"
+      - key: MAX_ITEM
+        value: "50"
+      - key: LIM_TIME
+        value: "180"
+      - key: LIM_ITEM
+        value: "100"
+      - key: CACHE_SIZE
+        value: "100"
+      - key: CACHE_LIFESPAN
+        value: "1800"
+      - key: DELAY
+        value: "600"      
     autoDeploy: true
 
   - type: web
