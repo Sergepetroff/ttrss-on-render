@@ -9,26 +9,20 @@ services:
     envVars:
       - key: SELF_URL_PATH
         value: https://ttrss-nq00t.onrender.com
+      - key: DB_TYPE
+        value: pgsql
       - key: DB_HOST
-        fromDatabase:
-          name: ttrss-db
-          property: host
+        value: db.cajwhyrkxnndhxaxjggg.supabase.co
       - key: DB_PORT
-        fromDatabase:
-          name: ttrss-db
-          property: port
+        value: "5432"
       - key: DB_NAME
-        fromDatabase:
-          name: ttrss-db
-          property: database
+        value: postgres
       - key: DB_USER
-        fromDatabase:
-          name: ttrss-db
-          property: user
+        value: postgres
       - key: DB_PASS
-        fromDatabase:
-          name: ttrss-db
-          property: password
+        value: "!Q@W1q2w!Q@W"
+      - key: PGSSLMODE
+        value: require
       - key: PUID
         value: "1000"
       - key: PGID
@@ -90,7 +84,7 @@ services:
       - key: CACHE_LIFESPAN
         value: "1800"
       - key: DELAY
-        value: "600"      
+        value: "600"
     autoDeploy: true
 
   - type: web
@@ -110,7 +104,3 @@ services:
       - key: NO_LOGFILES
         value: "true"
     autoDeploy: true
-
-databases:
-  - name: ttrss-db
-    plan: free
