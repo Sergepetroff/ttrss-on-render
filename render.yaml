@@ -42,7 +42,10 @@ services:
       url: wangqiru/mercury-parser-api:latest
     plan: free
     region: oregon
+    healthCheckPath: /
     envVars:
+      - key: PORT
+        value: "3000"
       - key: NODE_ENV
         value: production
     autoDeploy: true
@@ -54,7 +57,10 @@ services:
       url: wangqiru/opencc-api-server:latest
     plan: free
     region: oregon
+    healthCheckPath: /
     envVars:
+      - key: PORT
+        value: "3000"
       - key: NODE_ENV
         value: production
     autoDeploy: true
@@ -66,7 +72,10 @@ services:
       url: pictuga/morss:latest
     plan: free
     region: oregon
+    healthCheckPath: /
     envVars:
+      - key: PORT
+        value: "8000"
       - key: MORSS_PORT
         value: "8000"
       - key: TIMEOUT
@@ -94,7 +103,12 @@ services:
       url: diygod/rsshub:latest
     plan: free
     region: oregon
+    healthCheckPath: /
     envVars:
+      - key: PORT
+        value: "1200"
+      - key: CACHE_TYPE
+        value: memory    
       - key: NODE_ENV
         value: production
       - key: DEBUG_INFO
