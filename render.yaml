@@ -34,6 +34,8 @@ services:
         value: https://opencc-api-nq00t.onrender.com
       - key: RSSHUB_URL
         value: https://rsshub-nq00t.onrender.com
+      - key: DB_SSLMODE
+        value: require
     autoDeploy: true
 
   - type: web
