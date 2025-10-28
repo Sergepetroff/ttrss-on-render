@@ -6,6 +6,7 @@ services:
       url: wangqiru/ttrss:latest
     plan: free
     region: oregon
+    healthCheckPath: /
     envVars:
       - key: SELF_URL_PATH
         value: https://ttrss-nq00t.onrender.com
@@ -21,7 +22,7 @@ services:
         value: postgres
       - key: DB_PASS
         value: "!Q@W1q2w!Q@W"
-      - key: PGSSLMODE
+      - key: DB_SSLMODE
         value: require
       - key: PUID
         value: "1000"
@@ -108,7 +109,7 @@ services:
       - key: PORT
         value: "1200"
       - key: CACHE_TYPE
-        value: memory    
+        value: memory
       - key: NODE_ENV
         value: production
       - key: DEBUG_INFO
