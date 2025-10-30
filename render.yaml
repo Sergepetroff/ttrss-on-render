@@ -13,13 +13,13 @@ services:
       - key: DB_TYPE
         value: pgsql
       - key: DB_HOST
-        value: db.cajwhyrkxnndhxaxjggg.supabase.co
+        value: aws-1-eu-west-1.pooler.supabase.com
       - key: DB_PORT
         value: "5432"
       - key: DB_NAME
         value: postgres
       - key: DB_USER
-        value: postgres
+        value: postgres.cajwhyrkxnndhxaxjggg
       - key: DB_PASS
         value: "!Q@W1q2w!Q@W"
       - key: DB_SSLMODE
@@ -34,8 +34,6 @@ services:
         value: https://opencc-api-nq00t.onrender.com
       - key: RSSHUB_URL
         value: https://rsshub-nq00t.onrender.com
-      - key: DB_SSLMODE
-        value: require
     autoDeploy: true
 
   - type: web
