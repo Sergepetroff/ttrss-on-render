@@ -52,21 +52,6 @@ services:
     autoDeploy: true
 
   - type: web
-    name: opencc-api
-    runtime: image
-    image:
-      url: wangqiru/opencc-api-server:latest
-    plan: free
-    region: oregon
-    healthCheckPath: /
-    envVars:
-      - key: PORT
-        value: "3001"
-      - key: NODE_ENV
-        value: production
-    autoDeploy: true
-
-  - type: web
     name: morss
     runtime: image
     image:
