@@ -3,7 +3,7 @@ services:
     name: ttrss
     runtime: image
     image:
-      url: wangqiru/ttrss:latest
+      url: wangqiru/ttrss:nightly
     plan: free
     region: oregon
     healthCheckPath: /
