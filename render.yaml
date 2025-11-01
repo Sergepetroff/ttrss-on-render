@@ -86,7 +86,8 @@ services:
     name: rsshub
     runtime: image
     image:
-      url: diygod/rsshub:latest
+#      url: diygod/rsshub:latest
+      url: diygod/rsshub:chromium-bundled      
     plan: free
     region: oregon
     healthCheckPath: /
